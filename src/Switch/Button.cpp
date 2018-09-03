@@ -7,7 +7,7 @@ namespace Switch {
 	{
 		this->pinLocation = pin;
 
-		pinMode(pin, INPUT);
+		pinMode(this->pinLocation, INPUT);
 	}
 
 	Button::~Button() {
@@ -20,5 +20,4 @@ namespace Switch {
 
 		return state == HIGH;
 	}
-
 }

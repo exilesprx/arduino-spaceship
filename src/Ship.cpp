@@ -1,27 +1,26 @@
 #include "Ship.h"
+#include "BoardPins.h"
 
 Ship::Ship()
 {
-	this->hyperdrive = new HyperDrive(4, 5);
-	this->system = new SystemReady(3);
-	this->button = new Button(2);
+	this->engine = new RocketEngine();
+	this->button = new Button(BUTTON_PIN);
 }
 
 Ship::~Ship() {
-	delete(this->system);
-	delete(this->hyperdrive);
+	delete(this->engine);
 	delete(this->button);
 }
 
 void Ship::startup()
 {
-	this->system->ready();
+	this->engine->start();
 
-	if (!this->button->pressed())
+	if (this->button->pressed())
 	{
-		this->hyperdrive->disengage();
+		this->engine->engageHyperdrive();
 		return;
 	}
 
-	this->hyperdrive->engage();
+	this->engine->engageBoosters();
 }

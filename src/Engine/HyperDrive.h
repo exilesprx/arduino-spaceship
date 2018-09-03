@@ -1,7 +1,7 @@
 #ifndef SRC_ENGINE_HYPERDRIVE_H_
 #define SRC_ENGINE_HYPERDRIVE_H_
 
-#include "../Lights/Light.h";
+#include "../Lights/Light.h"
 
 namespace Engine {
 
